@@ -13,10 +13,20 @@ const readStream = fs.createReadStream(filePath, { highWaterMark: 100 });
 // Array of buffers
 const arrOfBuffers = [];
 
+/**
+ * let n = 7;
+ * while(n > 0) {
+ * console.log(n);
+ * n--;
+ * }
+ */
+
 readStream.on("readable", () => {
   let data = readStream.read();
+  // data === null
   while (data) {
     arrOfBuffers.push(data);
+    console.log(data);
     data = readStream.read();
   }
 });

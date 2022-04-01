@@ -1,8 +1,7 @@
 process.stdin.on("data", (data) => {
-  const name = data.toString().toUpperCase();
-  if (name !== "") {
-    process.stdout.write(name);
-  } else {
-    process.stderr.write(name);
-  }
+  const content = data.toString().toUpperCase();
+  process.stdout.write(content);
+  process.stdout.end(() => {
+    console.log("Finished");
+  });
 });

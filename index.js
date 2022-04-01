@@ -21,9 +21,10 @@ const arrOfBuffers = [];
 
 // Start reading
 readStream.on("data", (data) => {
-  console.log(data);
+  console.log(data.toString());
   arrOfBuffers.push(data);
 });
+
 
 // When reading is finished
 readStream.on("end", () => {
